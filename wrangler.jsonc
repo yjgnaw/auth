@@ -21,18 +21,21 @@
 	 * databases, object storage, AI inference, real-time communication and more.
 	 * https://developers.cloudflare.com/workers/runtime-apis/bindings/
 	 */
+	"d1_databases": [ // Just as an example, do not use in production.
+		{
+			"binding": "auth_db",
+			"database_name": "auth-db",
+			"database_id": "YOUR_DATABASE_ID_HERE"
+		}
+	],
 	/**
 	 * Environment Variables
 	 * https://developers.cloudflare.com/workers/wrangler/configuration/#environment-variables
 	 * Note: Use secrets to store sensitive data.
 	 * https://developers.cloudflare.com/workers/configuration/secrets/
 	 */
-	"vars": {
-		"PRODUCT_KEYS": [
-			"zX2imXZVjQRPQlsQ0CxIpOMQM0DThZ8nnG2t7of63Jc",
-			"036US7NTr1aT8jWSgVJ2sXeGTbkvgW2hbvYgiHjUnwD",
-			"DKpFO9RTofSN5gjTNRvBnd0BkrlHaWq9DbmhmbDpOhW"
-		]
+	"vars": { // Just as an example, do not use in production.
+		"SERVER_KEY": "YOUR_SERVER_KEY_HERE"
 	}
 	/**
 	 * Static Assets
