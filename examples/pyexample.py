@@ -48,10 +48,10 @@ class KeyVerifier:
         return True
 
 
-print(KeyVerifier.verify_key("my_secret_key_123", "1.0.0"))  # False
+print(KeyVerifier.verify_key("my_secret_key_123", "1.0.0"))  # Example: likely False
 print(
-    KeyVerifier.verify_key("VBmoQbL5jZ6YRjYGS4gbX095rYinyKdf85OPdUR4P0R", "1.0.0")
-)  # True
+    KeyVerifier.verify_key("YOUR_PRODUCT_KEY_HERE", "1.0.0")
+)  # Example: replace with your actual product key and version
 print(
-    KeyVerifier.verify_key("VBmoQbL5jZ6YRjYGS4gbX095rYinyKdf85OPdUR4P0R", "2.0.0")
-)  # False
+    KeyVerifier.verify_key("ANOTHER_EXAMPLE_PRODUCT_KEY", "2.0.0")
+)  # Example: different key/version combination
