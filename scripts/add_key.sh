@@ -52,9 +52,11 @@ fi
 # 4. Execute
 echo ""
 echo "Adding key to database..."
-# Note: We use single quotes for SQL values, so we need to be careful if the input contains single quotes.
-# For simplicity, we assume standard keys/ranges without single quotes.
-npx wrangler d1 execute auth-db --remote --command "INSERT INTO product_keys (key_value, semver_range) VALUES ('$PRODUCT_KEY', '$SEMVER_RANGE');"
+# Use parameterized SQL to safely insert user-provided values.
+npx wrangler d1 execute auth-db --remote \
+    --command "INSERT INTO product_keys (key_value, semver_range) VALUES (?1, ?2);" \
+    --param "$PRODUCT_KEY" \
+    --param "$SEMVER_RANGE"
 
 if [ $? -eq 0 ]; then
     echo -e "${GREEN}Success! Key added.${NC}"
