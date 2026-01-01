@@ -21,7 +21,7 @@
 	 * databases, object storage, AI inference, real-time communication and more.
 	 * https://developers.cloudflare.com/workers/runtime-apis/bindings/
 	 */
-	"d1_databases": [
+	"d1_databases": [ // Just as an example, do not use in production.
 		{
 			"binding": "auth_db",
 			"database_name": "auth-db",
