@@ -6,7 +6,7 @@ import random
 
 class KeyVerifier:
     SERVER_URL = "https://your-worker.workers.dev/"
-    SERVER_KEY = "ncrfQY9J6Id2VzhTlTdrXBHsGXM4jTLZkj7mBGAks3s"
+    SERVER_KEY = "YOUR_SERVER_KEY_HERE"
     SALT_LENGTH = 32
 
     def calculate_hash(key: str, salt: str) -> str:
