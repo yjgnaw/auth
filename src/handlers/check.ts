@@ -20,8 +20,9 @@ export const checkHandler = async (request: Request, env: Env) => {
     // client-provided salt, which cannot be done in the database query. The indexes on
     // key_value and semver_range help with query performance. For production systems with
     // a large number of keys, consider implementing caching or partitioning strategies.
+    // Keys are ordered by creation date to ensure consistent processing order.
     const { results } = await env.auth_db.prepare(
-        'SELECT key_value, semver_range FROM product_keys LIMIT 1000'
+        'SELECT key_value, semver_range FROM product_keys ORDER BY created_at ASC'
     ).all();
 
     let isValid = false;
@@ -32,7 +33,7 @@ export const checkHandler = async (request: Request, env: Env) => {
 
             // Validate the semver range from the database
             if (!semver.validRange(range)) {
-                console.warn(`Invalid semver range in database: ${range}`);
+                console.warn('Invalid semver range found in database for key at position', results.indexOf(row));
                 continue;
             }
 
