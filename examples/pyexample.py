@@ -5,7 +5,7 @@ import random
 
 
 class KeyVerifier:
-    SERVER_URL = "https://dev-auth.fredbao1126.workers.dev/"
+    SERVER_URL = "https://your-worker.workers.dev/"
     SERVER_KEY = "ncrfQY9J6Id2VzhTlTdrXBHsGXM4jTLZkj7mBGAks3s"
     SALT_LENGTH = 32
 
