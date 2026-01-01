@@ -1,4 +1,4 @@
--- Migration number: 0001 	 2026-01-01T00:00:00.000Z
+-- Migration number: 0001
 CREATE TABLE IF NOT EXISTS product_keys (
     id INTEGER PRIMARY KEY AUTOINCREMENT,
     key_value TEXT NOT NULL,
