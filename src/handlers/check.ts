@@ -65,8 +65,8 @@ export const checkHandler = async (request: Request, env: Env) => {
         return new Response('Invalid ID or Version', { status: 403 });
     }
 
-    // 第二阶段：返回 Server Key 加密结果
-    // 用于客户端验证服务端身份
+    // Phase two: return SERVER_KEY hash
+    // Used for the client to verify server integrity
     const serverResponse = await calculateHash(env.SERVER_KEY, salt);
 
     return new Response(serverResponse, {
