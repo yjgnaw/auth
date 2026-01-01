@@ -30,10 +30,11 @@ export default {
 			} else if (path === 'check') {
 				return await checkHandler(request, env);
 			} else {
-				throw new Error('Password check failed');
+				return new Response('Invalid url path', { status: 404 });
 			}
 		} catch (e) {
-			return new Response('Access denied', { status: 403 });
+			console.warn('Error processing request:', e);
+			return new Response('Internal Server Error', { status: 500 });
 		}
 	},
 } satisfies ExportedHandler<Env>;
